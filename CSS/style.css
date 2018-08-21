@@ -22,6 +22,7 @@ time, mark, audio, video {
 body {
     background-color: #eee;
     font-size: 62.5%;
+    box-sizing: border-box;
 }
 
 .main-wrapper {
@@ -29,21 +30,32 @@ body {
   margin: 0 auto;
 }
 
-.main-header {
-
+.horizontal-wrapper{
+  display: flex;
+  justify-content: center;
 }
+
 .header-game-title {
   font-size: 6.4em;
   text-align: center;
 }
 
 .main-pepe-button {
-  width: 25%;
-  height: 30vh;
-  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  margin-top: 10px;
   border: none;
   border-radius: 1000%;
   background-image:url("../IMAGES/MainPepeButton.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.pepe-counter {
+  font-size: 2.8em;
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 15px;
 }
