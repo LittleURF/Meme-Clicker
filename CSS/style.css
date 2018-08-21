@@ -21,4 +21,27 @@ time, mark, audio, video {
 
 body {
     background-color: #eee;
+    font-size: 62.5%;
+}
+
+.main-wrapper {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.main-header {
+
+}
+.header-game-title {
+  font-size: 6.4em;
+  text-align: center;
+}
+
+.main-pepe-button {
+  width: 100%;
+  border: none;
+  border-radius: 100%;
+  background-image:url("../IMAGES/MainPepeButton.jpg");
+  background-size: cover;
+  background-position: center;
 }
