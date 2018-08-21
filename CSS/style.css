@@ -38,9 +38,11 @@ body {
 }
 
 .main-pepe-button {
-  width: 100%;
+  width: 25%;
+  height: 30vh;
+  margin: 0 auto;
   border: none;
-  border-radius: 100%;
+  border-radius: 1000%;
   background-image:url("../IMAGES/MainPepeButton.jpg");
   background-size: cover;
   background-position: center;
