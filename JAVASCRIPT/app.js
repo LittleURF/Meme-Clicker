@@ -9,4 +9,4 @@ function updateCookies(){
     pepesCounter.innerHTML = 'You have ' + pepes + ' Pepes';
 }
 
-setInterval(updateCookies, 1);
+// setInterval(updateCookies, 1);

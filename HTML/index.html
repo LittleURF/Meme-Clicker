@@ -11,11 +11,31 @@
     <header class="main-header">
       <h1 class="header-game-title">Meme Clicker</h1>
     </header>
-    <div class="horizontal-wrapper">
-      <button id="main-pepe-button" onclick="mainButtonClick()">
-      </button>
+    <div class="sections-wrapper">
+      <section class="details-section"></section>
+
+
+      <section class="central-section">
+          <button id="main-pepe-button" onclick="mainButtonClick()">
+          </button>
+          <span id="pepe-counter">You have 0 Pepes</span>
+      </section>
+
+
+      <section class="shop-section">
+        <div class="shop-item">
+          <img src="../IMAGES/FeelsAmazingMan.png">
+          <div class="shop-item-center">
+            <span class="shop-item-name">Feels Man</span>
+            <span class="shop-item-amount">0</span>
+          </div>
+        </div>
+        <div class="shop-item"></div>
+        <div class="shop-item"></div>
+      </section>
+
     </div>
-    <span id="pepe-counter">You have 15423 Pepes</span>
+
   </div>
 </body>
 <script src="../JAVASCRIPT/app.js"></script>

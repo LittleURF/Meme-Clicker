@@ -26,18 +26,37 @@ body {
 }
 
 .main-wrapper {
-  width: 70%;
+  width: 76%;
   margin: 0 auto;
-}
-
-.horizontal-wrapper{
-  display: flex;
-  justify-content: center;
 }
 
 .header-game-title {
   font-size: 6.4em;
   text-align: center;
+}
+
+.sections-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.sections-wrapper > section {
+  border-radius: 5px;
+}
+
+.details-section, .shop-section {
+  flex-basis: 28%;
+  background-color: #dbdbdb;
+  border:1px solid #ff7272;
+}
+
+.central-section {
+  display: flex;
+  flex-basis: 35%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #518eef;
 }
 
 #main-pepe-button {
@@ -50,6 +69,7 @@ body {
   background-image:url("../IMAGES/MainPepeButton.jpg");
   background-size: cover;
   background-position: center;
+  outline: none;
 }
 
 #pepe-counter {
@@ -57,5 +77,35 @@ body {
   display: table;
   margin: 0 auto;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 25px;
+}
+
+.shop-item {
+  display: flex;
+  align-items:center;
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+.shop-item:last-child {
+  border-bottom: none;
+}
+
+.shop-item-center {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shop-item > img {
+  width: 12%;
+  margin: 0% 2%;
+}
+
+.shop-item-name {
+  font-size: 2.4em;
+}
+
+.shop-item-amount {
+  font-size: 3.8em;
 }
