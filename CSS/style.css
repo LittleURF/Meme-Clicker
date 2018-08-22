@@ -90,8 +90,13 @@ body {
   border-bottom: 1px solid gray;
   text-align: center;
 }
+
 .shop-item:last-child {
   border-bottom: none;
+}
+
+.shop-item > * {
+  pointer-events: none;
 }
 
 .shop-item-center {
