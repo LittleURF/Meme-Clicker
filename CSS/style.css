@@ -40,7 +40,7 @@ body {
   text-align: center;
 }
 
-.main-pepe-button {
+#main-pepe-button {
   width: 250px;
   height: 250px;
   text-align: center;
@@ -52,7 +52,7 @@ body {
   background-position: center;
 }
 
-.pepe-counter {
+#pepe-counter {
   font-size: 2.8em;
   display: table;
   margin: 0 auto;
