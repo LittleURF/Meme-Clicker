@@ -45,7 +45,7 @@ body {
   border-radius: 5px;
 }
 
-.details-section, .shop-section {
+.upgrade-stats-section, .shop-section {
   flex-basis: 28%;
   background-color: #dbdbdb;
   border:1px solid #ff7272;
@@ -126,4 +126,18 @@ body {
   font-weight: 700;
   width: 20%;
   border-left: 1px solid black;
+}
+
+.upgrade-stats-section {
+  min-height: 200px;
+}
+.upgrade-stats-sections-buttons{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.upgrade-stats-sections-buttons > button {
+  flex-basis: 50%;
+  height: 40px;
 }
