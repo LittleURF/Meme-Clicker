@@ -73,12 +73,16 @@ body {
   outline: none;
 }
 
-#pepe-counter {
+#pepe-counter, #gpps-counter {
   font-size: 2.8em;
   display: table;
   margin: 0 auto;
   text-align: center;
   margin-top: 25px;
+}
+
+#gpps-counter {
+  margin-top: 10px;
 }
 
 .shop-item {

@@ -20,11 +20,12 @@ function buyItem(event, self){
         self.totalPps = self.amount * self.pps; // updates items total pps
         event.target.querySelector('span.shop-item-amount').innerHTML = self.amount; // updates amount on UI
         event.target.querySelector('span.shop-item-price').innerHTML = self.price; // updates price on UI
+        document.getElementById('gpps-counter').innerHTML = gpps + ' PPS'; // updates gpps on UI
 
     }
 }
 
- // get the buy function into a prototype of items
+
 var item1 = {
     name: 'Feels Bad Man',
     firstPrice: 10, // price of the first bought item
