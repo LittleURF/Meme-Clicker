@@ -48,6 +48,7 @@ body {
 .upgrade-stats-section, .shop-section {
   flex-basis: 28%;
   background-color: #dbdbdb;
+  border: 2px solid black;
 
 }
 
@@ -57,7 +58,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #518eef;
+  border: 2px solid #414141;
   background-color: #e9e9e9
 }
 
@@ -66,7 +67,7 @@ body {
   height: 250px;
   text-align: center;
   margin-top: 10px;
-  border: none;
+  border: 3px solid rgb(0, 0, 0);
   border-radius: 1000%;
   background-image:url("../IMAGES/MainPepeButton.jpg");
   background-size: cover;
@@ -166,6 +167,7 @@ body {
   display: table;
   margin: 0 auto;
   width: 80%;
+  font-size: 1.15em;
   font-weight: 600;
   text-align: center;
 }
@@ -180,10 +182,10 @@ body {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  bottom: 104%;
   left: 50%;
   margin-left: -110px;
-  font-size: 1.4em;
+  font-size: 1.1em;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -209,4 +211,5 @@ body {
   margin: 10px 0px;
   border: solid #3838388f;
   border-width: 2px 0px;
+  background-color: rgb(235, 235, 235);
 }

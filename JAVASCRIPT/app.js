@@ -9,7 +9,7 @@
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
 */
 
-var pepes = 10000;
+var pepes = 100000;
 var gpps = 0; // Global pepes per second
 
 function mainButtonClick() {
