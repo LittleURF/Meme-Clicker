@@ -1,3 +1,14 @@
+/*
+--TO DO
+
+- Add upgrades section
+- Add statistics section
+- Make Buildings, you dont have money for, stand out (low brightness fe.)
+- Add more buildings
+- Think of something for Paula to draw
+- Replace upgrade icons with actual buildings they upgrade (modified pics tho)
+*/
+
 var pepes = 10000;
 var gpps = 0; // Global pepes per second
 
