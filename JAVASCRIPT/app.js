@@ -1,10 +1,8 @@
 /*
 --TO DO
-
 - Add upgrades functionality, onclick function with a paremeter of effectivness %
 - Upgrades will be split into categories, single item effectivness,
   all items effectivness, click power?
-- Make items into array of objects
 - Add statistics section
 - Make Buildings you dont have money for, stand out (low brightness fe.)
 - Add more buildings
@@ -29,7 +27,13 @@ function updateCookiesAndGppsUi() {
 }
 
 function updateGpps(){
-
+  var toBeGpps = 0;
+  for(var i = 0; i < items.length; i++){
+    toBeGpps += items[i].totalPps;
+  }
+  toBeGpps = Math.round(toBeGpps);
+  gpps = toBeGpps;
+  updateCookiesAndGppsUi();
 }
 
 function roundNumberTo2(number) { // rounding number up to 2 decimal places to avoid rogue decimals
@@ -38,25 +42,29 @@ function roundNumberTo2(number) { // rounding number up to 2 decimal places to a
 }
 
 function buyItem(event, self) {
-  console.log(self);
-  if (pepes >= self.price) {
+  if (pepes >= self.price){
     pepes -= self.price;
     self.amount++;
     self.pps = roundNumberTo2(self.pps); 
-    gpps += self.pps;
-    gpps = Math.round(gpps);
     self.price = Math.floor(self.firstPrice * Math.pow(1.2, self.amount))
     self.totalPps = self.amount * self.pps; // updates items total pps
     event.target.querySelector('span.shop-item-amount').innerHTML = self.amount; // updates amount on UI
     event.target.querySelector('span.shop-item-price').innerHTML = self.price; // updates price on UI
+    updateGpps();
   }
 }
 
-function upgradeItemEffectivness(item, effectivness){
-  item.pps += Math.round((item.pps * (effectivness / 100)) * 100) / 100; 
-  item.pps = roundNumberTo2(item.pps);
-  // ^ Adds effectivness percentages to the number and rounds it to 2 decimal places
-  console.log(item.pps);
+function upgradeItemEffectivness(item, effectivness, price, event){
+  if (pepes >= price){
+    pepes -= price;
+    item.pps += Math.round((item.pps * (effectivness / 100)) * 100) / 100; 
+    item.pps = roundNumberTo2(item.pps);
+    // ^ Adds effectivness percentages to the number and rounds it to 2 decimal places
+    item.totalPps = item.amount * item.pps; // updates items total pps
+    updateGpps();
+    console.log(event.target);
+    event.target.parentElement.style.display = 'none';
+  }
 }
 
 var items = [
