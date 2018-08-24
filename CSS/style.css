@@ -95,6 +95,7 @@ body {
   width: 100%;
   border-bottom: 1px solid gray;
   text-align: center;
+  opacity: 0.35;
 }
 
 .shop-item:last-child {

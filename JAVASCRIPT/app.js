@@ -1,5 +1,6 @@
 /*
 --TO DO
+- Deal with large numbers, changing multiple zeroes to letter (1 000 000 - 1M)
 - Make Buildings you dont have money for, stand out (low brightness fe.) - nao?
 - Add more buildings
 - Save, Load mechanic
@@ -7,6 +8,7 @@
 - Do more upgrades split into categories, single item effectivness,
   all items effectivness, click power?
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
+- Make small main cookie icon to place next to item price? 
 - Make upgrades dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
 - Add statistics section
@@ -24,8 +26,31 @@ function updateCookiesAndGppsUi() {
   var pepesCounter = document.getElementById('pepe-counter');
   pepesCounter.innerHTML = 'You have ' + Math.round(pepes) + ' Pepes';
   document.getElementById('gpps-counter').innerHTML = gpps + ' PPS';
-}
 
+  for (var i = 0; i < items.length; i++) { // goes through every item and lights it up if player has enough pepes to buy it
+    if (pepes >= items[i].price){
+      document.getElementById(items[i].id).style.opacity = '1';
+      document.getElementById(items[i].id).style.filter = 'none';
+    }
+    else {
+      document.getElementById(items[i].id).style.opacity = '0.45';
+      document.getElementById(items[i].id).style.filter = 'grayscale(100%)';
+    }
+  }
+
+  for (var j = 0; j < upgrades.length; j++){ // goes through every upgrade and lights it up if player has enough pepes to buy it
+    var upgradePrice = upgrades[j].querySelector('span.upgrade-price').innerHTML.replace(/\s/g, ''); // removes whitespace from the price
+    if(pepes < upgradePrice){
+      upgrades[j].style.opacity = '0.4';
+    }
+    else {
+      upgrades[j].style.opacity = '1';
+    }
+  
+  }
+
+
+}
 
 
 function updateGpps() {
@@ -55,7 +80,7 @@ function buyItem(item) {
     item.amount++;
     item.pps = roundNumberTo2(item.pps);
     item.price = Math.floor(item.firstPrice * Math.pow(1.2, item.amount))
-    item.totalPps = item.amount * item.pps; // updates items total pps
+    item.totalPps = roundNumberTo2(item.amount * item.pps); // updates items total pps
     event.target.querySelector('span.shop-item-amount').innerHTML = item.amount; // updates amount on UI
     event.target.querySelector('span.shop-item-price').innerHTML = item.price; // updates price on UI
     updateGpps();
@@ -69,7 +94,7 @@ function upgradeItemEffectivness(item, effectivness, price, event) {
     item.pps += Math.round((item.pps * (effectivness / 100)) * 100) / 100;
     item.pps = roundNumberTo2(item.pps);
     // ^ Adds effectivness percentages to the number and rounds it to 2 decimal places
-    item.totalPps = item.amount * item.pps; // updates items total pps
+    item.totalPps = roundNumberTo2(item.amount * item.pps); // updates items total pps
     updateGpps();
     event.target.parentElement.style.display = 'none';
     updateItemsPps(item);
@@ -108,6 +133,11 @@ var items = [
     totalPps: 0
   }
 ]
+
+var upgrades = document.getElementsByClassName('upgrade-image');
+console.log(upgrades);
+
+
 
 
 setInterval(updateCookiesAndGppsUi, 1);
