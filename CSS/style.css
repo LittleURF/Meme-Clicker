@@ -119,8 +119,23 @@ body {
   margin-right: 5%;
 }
 
+.shop-item-name-pps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  text-align: initial; 
+  width: 100%;
+}
 .shop-item-name {
   font-size: 1.6em;
+  flex-basis: 100%;
+}
+
+.shop-item-pps {
+  font-size: 1.1em;
+  font-weight: 900;
+  flex-basis: 100%;
+
 }
 
 .shop-item-price {

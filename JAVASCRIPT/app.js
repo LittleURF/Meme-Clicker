@@ -1,16 +1,16 @@
 /*
 --TO DO
-- Add upgrades functionality, onclick function with a paremeter of effectivness %
-- Upgrades will be split into categories, single item effectivness,
-  all items effectivness, click power?
-- Add statistics section
-- Make Buildings you dont have money for, stand out (low brightness fe.)
+- Make Buildings you dont have money for, stand out (low brightness fe.) - nao?
 - Add more buildings
-- Think of something for Paula to draw
 - Save, Load mechanic
+- Think of something for Paula to draw
+- Do more upgrades split into categories, single item effectivness,
+  all items effectivness, click power?
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
 - Make upgrades dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
+- Add statistics section
+- Maybe get the rounding of numbers in order? Its all over the place as of now.
 */
 
 var pepes = 100000;
@@ -23,17 +23,25 @@ function mainButtonClick() {
 function updateCookiesAndGppsUi() {
   var pepesCounter = document.getElementById('pepe-counter');
   pepesCounter.innerHTML = 'You have ' + Math.round(pepes) + ' Pepes';
-  document.getElementById('gpps-counter').innerHTML = gpps + ' PPS'; 
+  document.getElementById('gpps-counter').innerHTML = gpps + ' PPS';
 }
 
-function updateGpps(){
+
+
+function updateGpps() {
   var toBeGpps = 0;
-  for(var i = 0; i < items.length; i++){
+  for (var i = 0; i < items.length; i++) {
     toBeGpps += items[i].totalPps;
   }
   toBeGpps = Math.round(toBeGpps);
   gpps = toBeGpps;
-  updateCookiesAndGppsUi();
+ // updateCookiesAndGppsUi(); // It was once here but i think its useless, in case everything breaks, check if this is the reason
+}
+
+
+
+function updateItemsPps(item) {
+  document.getElementById(item.id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + item.totalPps;
 }
 
 function roundNumberTo2(number) { // rounding number up to 2 decimal places to avoid rogue decimals
@@ -41,35 +49,37 @@ function roundNumberTo2(number) { // rounding number up to 2 decimal places to a
 
 }
 
-function buyItem(event, self) {
-  if (pepes >= self.price){
-    pepes -= self.price;
-    self.amount++;
-    self.pps = roundNumberTo2(self.pps); 
-    self.price = Math.floor(self.firstPrice * Math.pow(1.2, self.amount))
-    self.totalPps = self.amount * self.pps; // updates items total pps
-    event.target.querySelector('span.shop-item-amount').innerHTML = self.amount; // updates amount on UI
-    event.target.querySelector('span.shop-item-price').innerHTML = self.price; // updates price on UI
+function buyItem(item) {
+  if (pepes >= item.price) {
+    pepes -= item.price;
+    item.amount++;
+    item.pps = roundNumberTo2(item.pps);
+    item.price = Math.floor(item.firstPrice * Math.pow(1.2, item.amount))
+    item.totalPps = item.amount * item.pps; // updates items total pps
+    event.target.querySelector('span.shop-item-amount').innerHTML = item.amount; // updates amount on UI
+    event.target.querySelector('span.shop-item-price').innerHTML = item.price; // updates price on UI
     updateGpps();
+    updateItemsPps(item);
   }
 }
 
-function upgradeItemEffectivness(item, effectivness, price, event){
-  if (pepes >= price){
+function upgradeItemEffectivness(item, effectivness, price, event) {
+  if (pepes >= price) {
     pepes -= price;
-    item.pps += Math.round((item.pps * (effectivness / 100)) * 100) / 100; 
+    item.pps += Math.round((item.pps * (effectivness / 100)) * 100) / 100;
     item.pps = roundNumberTo2(item.pps);
     // ^ Adds effectivness percentages to the number and rounds it to 2 decimal places
     item.totalPps = item.amount * item.pps; // updates items total pps
     updateGpps();
-    console.log(event.target);
     event.target.parentElement.style.display = 'none';
+    updateItemsPps(item);
   }
 }
 
 var items = [
 
   item1 = {
+    id: 'item1',
     name: 'Feels Bad Man',
     firstPrice: 10, // price of the first bought item
     price: 10,
@@ -79,6 +89,7 @@ var items = [
   },
 
   item2 = {
+    id: 'item2',
     name: 'Feels Good Man',
     firstPrice: 250,
     price: 250,
@@ -88,6 +99,7 @@ var items = [
   },
 
   item3 = {
+    id: 'item3',
     name: 'Feels Amazing Man',
     firstPrice: 2000,
     price: 2000,
