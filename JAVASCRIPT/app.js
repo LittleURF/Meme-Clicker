@@ -1,6 +1,6 @@
 /*
 --TO DO
-- Deal with large numbers, changing multiple zeroes to letter (1 000 000 - 1M)
+
 - Add more buildings
 - Save, Load mechanic
 - Think of something for Paula to draw
@@ -22,7 +22,7 @@ if >= 1000000000 then / 100000000 + 'B'
 
 */
 
-var pepes = 1000000;
+var pepes = 3000000;
 var gpps = 0; // Global pepes per second
 
 function mainButtonClick() {
@@ -35,27 +35,28 @@ function normalizeNumbers(number) {
 }
 
 function convertBigNumber(number){
+
   switch(true){
     case (number >= 1000000000000):
-      number = (number / 1000000000000) + 'T';
+      number = (number / 1000000000000).toFixed(3) + ' T';
       break;
     case (number >= 1000000000):
-      number = (number / 1000000000) + 'B';
+      number = (number / 1000000000).toFixed(3) + ' B';
       break;
     case (number >= 1000000):
-      number = (number / 1000000) + 'M';
+      number = (number / 1000000).toFixed(3) + ' M';
       break;
     case (number >= 1000):
-      number = (number / 1000) + 'K';
+      number = (number / 1000).toFixed(3) + ' K';
       break;
   }
   return number;
 }
 
 function updateCookiesAndGppsUi() {
-  var pepesCounter = document.getElementById('pepe-counter');
-  pepesCounter.innerHTML = 'You have ' + Math.round(pepes) + ' Pepes';
-  document.getElementById('gpps-counter').innerHTML = gpps + ' PPS';
+  var pepeCounter = document.getElementById('pepe-counter');
+  pepeCounter.innerHTML = convertBigNumber(Math.round(pepes)) + ' Pepes';
+  document.getElementById('gpps-counter').innerHTML = convertBigNumber(gpps) + ' PPS';
 
   for (var i = 0; i < items.length; i++) { // goes through every item and lights it up if player has enough pepes to buy it
     if (pepes >= items[i].price){
@@ -96,7 +97,7 @@ function updateGpps() {
 
 
 function updateItemsPps(item) {
-  document.getElementById(item.id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + item.totalPps;
+  document.getElementById(item.id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(item.totalPps);
 }
 
 function roundNumberTo2(number) { // rounding number up to 2 decimal places to avoid rogue decimals
@@ -111,8 +112,8 @@ function buyItem(item) {
     item.pps = roundNumberTo2(item.pps);
     item.price = Math.floor(item.firstPrice * Math.pow(1.2, item.amount))
     item.totalPps = roundNumberTo2(item.amount * item.pps); // updates items total pps
-    event.target.querySelector('span.shop-item-amount').innerHTML = item.amount; // updates amount on UI
-    event.target.querySelector('span.shop-item-price').innerHTML = item.price; // updates price on UI
+    event.target.querySelector('span.shop-item-amount').innerHTML = convertBigNumber(item.amount); // updates amount on UI
+    event.target.querySelector('span.shop-item-price').innerHTML = convertBigNumber(item.price); // updates price on UI
     updateGpps();
     updateItemsPps(item);
   }
