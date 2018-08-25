@@ -45,7 +45,7 @@ var items = [
         name: 'Kermit',
         firstPrice: 300000,
         price: 300000,
-        pps: 1000,
+        pps: 5500,
         amount: 0,
         totalPps: 0
       },
@@ -55,7 +55,7 @@ var items = [
         name: 'Spongebob',
         firstPrice: 1200000,
         price: 1200000,
-        pps: 1000,
+        pps: 23000,
         amount: 0,
         totalPps: 0
       },
@@ -65,7 +65,7 @@ var items = [
         name: 'Dat boi',
         firstPrice: 6500000,
         price: 6500000,
-        pps: 1000,
+        pps: 113000,
         amount: 0,
         totalPps: 0
       },
@@ -73,9 +73,9 @@ var items = [
       item8 = {
         id: 'item8',
         name: 'Spooky Scary Skeleton',
-        firstPrice: 43000000,
-        price: 43000000,
-        pps: 1000,
+        firstPrice: 36000000,
+        price: 36000000,
+        pps: 550000,
         amount: 0,
         totalPps: 0
       },
