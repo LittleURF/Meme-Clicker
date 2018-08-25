@@ -3,11 +3,11 @@
 - Add more buildings
 - Save, Load mechanic
 - Think of something for Paula to draw
-- Do more upgrades split into categories, single item effectivness,
+- Do more upgradesDOM split into categories, single item effectivness,
   all items effectivness, click power?
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
 - Make small main cookie icon to place next to item price? 
-- Make upgrades dissapear when player is far away from them(no item,
+- Make upgradesDOM dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
 - Add statistics section
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
@@ -60,13 +60,13 @@ function updateCookiesAndGppsUi() {
     }
   }
 
-  for (var j = 0; j < upgrades.length; j++){ // goes through every upgrade and lights it up if player has enough pepes to buy it
-    var upgradePrice = upgrades[j].querySelector('span.upgrade-price').innerHTML.replace(/\s/g, ''); // removes whitespace from the price
-    if(pepes < upgradePrice){
-      upgrades[j].style.opacity = '0.4';
+  for (var j = 0; j < upgradesDOM.length; j++){ // goes through every upgrade and lights it up if player has enough pepes to buy it
+    var upgradePrice = upgradesDOM[j].querySelector('span.upgrade-price').innerHTML.replace(/\s/g, ''); // removes whitespace from the price
+    if(pepes < upgrades[j].price){
+      upgradesDOM[j].style.opacity = '0.4';
     }
     else {
-      upgrades[j].style.opacity = '1';
+      upgradesDOM[j].style.opacity = '1';
     }
   
   }
@@ -110,63 +110,26 @@ function buyItem(item) {
   }
 }
 
-function upgradeItemEffectivness(item, effectivness, price, event) {
-  if (pepes >= price) {
-    pepes -= price;
-    item.pps += Math.round((item.pps * (effectivness / 100)) * 100) / 100;
-    item.pps = roundNumberTo2(item.pps);
+function upgradeItem(upgradeNr) {
+  var upgrade = upgrades[upgradeNr];
+  console.log(upgrade);
+
+  if (pepes >= upgrade.price) {
+    pepes -= upgrade.price;
+    upgrade.bought = true;
+    upgrade.upgradedItem.pps += Math.round((upgrade.upgradedItem.pps * (upgrade.effectivness / 100)) * 100) / 100;
+    upgrade.upgradedItem.pps = roundNumberTo2(upgrade.upgradedItem.pps);
     // ^ Adds effectivness percentages to the number and rounds it to 2 decimal places
-    item.totalPps = roundNumberTo2(item.amount * item.pps); // updates items total pps
+    upgrade.upgradedItem.totalPps = roundNumberTo2(upgrade.upgradedItem.amount * upgrade.upgradedItem.pps); // updates items total pps
     updateGpps();
     event.target.parentElement.style.display = 'none';
-    updateItemsPps(item);
+    updateItemsPps(upgrade.upgradedItem);
   }
 }
 
-var items = [
 
-  item1 = {
-    id: 'item1',
-    name: 'Feels Bad Man',
-    firstPrice: 10, // price of the first bought item
-    price: 10,
-    pps: 1,
-    amount: 0,
-    totalPps: 0
-  },
 
-  item2 = {
-    id: 'item2',
-    name: 'Feels Good Man',
-    firstPrice: 250,
-    price: 250,
-    pps: 10,
-    amount: 0,
-    totalPps: 0
-  },
-
-  item3 = {
-    id: 'item3',
-    name: 'Feels Amazing Man',
-    firstPrice: 2000,
-    price: 2000,
-    pps: 100,
-    amount: 0,
-    totalPps: 0
-  },
-
-  item4 = {
-    id: 'item4',
-    name: 'Wednesday Frog',
-    firstPrice: 50000,
-    price: 50000,
-    pps: 1000,
-    amount: 0,
-    totalPps: 0
-  }
-]
-
-var upgrades = document.getElementsByClassName('upgrade-image'); // array of upgrades 
+var upgradesDOM = document.getElementsByClassName('upgrade-image'); // array of every upgrade UI element
 
 setInterval(updateCookiesAndGppsUi, 1);
 setInterval(function () {
