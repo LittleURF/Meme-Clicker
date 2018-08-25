@@ -1,7 +1,6 @@
 /*
 --TO DO
 - Deal with large numbers, changing multiple zeroes to letter (1 000 000 - 1M)
-- Make Buildings you dont have money for, stand out (low brightness fe.) - nao?
 - Add more buildings
 - Save, Load mechanic
 - Think of something for Paula to draw
@@ -15,11 +14,42 @@
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
 */
 
-var pepes = 100000;
+/*
+Remove spaces from numbers on entry
+Add spaces after 3 if total is 6, 2 if total 5 etc.
+if >= 1000000 then / 100000 + 'M'
+if >= 1000000000 then / 100000000 + 'B'
+
+*/
+
+var pepes = 1000000;
 var gpps = 0; // Global pepes per second
 
 function mainButtonClick() {
   pepes += 1;
+}
+
+function normalizeNumbers(number) {
+  number = number.replace(/\s/g, '');
+  return number;
+}
+
+function convertBigNumber(number){
+  switch(true){
+    case (number >= 1000000000000):
+      number = (number / 1000000000000) + 'T';
+      break;
+    case (number >= 1000000000):
+      number = (number / 1000000000) + 'B';
+      break;
+    case (number >= 1000000):
+      number = (number / 1000000) + 'M';
+      break;
+    case (number >= 1000):
+      number = (number / 1000) + 'K';
+      break;
+  }
+  return number;
 }
 
 function updateCookiesAndGppsUi() {
@@ -134,11 +164,7 @@ var items = [
   }
 ]
 
-var upgrades = document.getElementsByClassName('upgrade-image');
-console.log(upgrades);
-
-
-
+var upgrades = document.getElementsByClassName('upgrade-image'); // array of upgrades 
 
 setInterval(updateCookiesAndGppsUi, 1);
 setInterval(function () {
