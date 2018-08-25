@@ -2,15 +2,17 @@
 --TO DO
 - Add more buildings
 - Save, Load mechanic
+- Make it play even when the tab is not active, just open.
 - Think of something for Paula to draw
 - Do more upgradesDOM split into categories, single item effectivness,
   all items effectivness, click power?
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
 - Make small main cookie icon to place next to item price? 
-- Make upgradesDOM dissapear when player is far away from them(no item,
+- Make upgrades dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
 - Add statistics section
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
+- Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
 */
 
 var pepes = 15000000;

@@ -38,7 +38,47 @@ var items = [
       pps: 1000,
       amount: 0,
       totalPps: 0
-    }
+    },
+    
+    item5 = {
+        id: 'item5',
+        name: 'Kermit',
+        firstPrice: 300000,
+        price: 300000,
+        pps: 1000,
+        amount: 0,
+        totalPps: 0
+      },
+    
+      item6 = {
+        id: 'item6',
+        name: 'Spongebob',
+        firstPrice: 1200000,
+        price: 1200000,
+        pps: 1000,
+        amount: 0,
+        totalPps: 0
+      },
+    
+      item7 = {
+        id: 'item7',
+        name: 'Dat boi',
+        firstPrice: 6500000,
+        price: 6500000,
+        pps: 1000,
+        amount: 0,
+        totalPps: 0
+      },
+
+      item8 = {
+        id: 'item8',
+        name: 'Spooky Scary Skeleton',
+        firstPrice: 43000000,
+        price: 43000000,
+        pps: 1000,
+        amount: 0,
+        totalPps: 0
+      },
   ]
   
   var upgrades = [
