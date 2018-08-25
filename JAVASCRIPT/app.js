@@ -1,6 +1,5 @@
 /*
 --TO DO
-
 - Add more buildings
 - Save, Load mechanic
 - Think of something for Paula to draw
@@ -14,15 +13,7 @@
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
 */
 
-/*
-Remove spaces from numbers on entry
-Add spaces after 3 if total is 6, 2 if total 5 etc.
-if >= 1000000 then / 100000 + 'M'
-if >= 1000000000 then / 100000000 + 'B'
-
-*/
-
-var pepes = 3000000;
+var pepes = 15000000;
 var gpps = 0; // Global pepes per second
 
 function mainButtonClick() {
@@ -160,6 +151,16 @@ var items = [
     firstPrice: 2000,
     price: 2000,
     pps: 100,
+    amount: 0,
+    totalPps: 0
+  },
+
+  item4 = {
+    id: 'item4',
+    name: 'Wednesday Frog',
+    firstPrice: 50000,
+    price: 50000,
+    pps: 1000,
     amount: 0,
     totalPps: 0
   }
