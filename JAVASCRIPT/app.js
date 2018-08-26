@@ -18,7 +18,10 @@
 var pepes = 45000000;
 var gpps = 0; // Global pepes per second
 
-
+if(localStorage.getItem("save") !== null){
+  console.log('asd');
+  loadGame();
+}
 
 function saveGame(){
   var save = {
@@ -27,10 +30,18 @@ function saveGame(){
     items: items,
     upgrades: upgrades,
   };
-  
   localStorage.setItem("save", JSON.stringify(save));
 }
+
 function loadGame(){
+  var save = JSON.parse(localStorage.getItem("save"));
+  pepes = save.pepes;
+  gpps = save.gpps;
+  items = save.items;
+  upgrades = save.upgrades;
+}
+
+function updateUi(){
 
 }
 
@@ -89,8 +100,6 @@ function updateCookiesAndGppsUi() {
     }
   
   }
-
-
 }
 
 
@@ -169,7 +178,4 @@ pepeCounterWorker.postMessage(gpps);
 startOrRestartWorker();
 
 setInterval(updateCookiesAndGppsUi, 1);
-// setInterval(function () {
-//   pepes += gpps / 25;
-// }, 40); // it actually adds 1 second worth of pepes every second, the timings are weird to make
-// the counter look cool
+setInterval(saveGame, 2000);
