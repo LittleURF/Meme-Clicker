@@ -2,7 +2,9 @@
 --TO DO
 - Add more buildings
 - Save, Load mechanic
-- Make it play even when the tab is not active, just open.
+- Make it play even when the tab is not active, just open. -
+  WEB WORKER - giving it PPS and pepes, recieving pepes from them so it updates when user makes the tab active
+
 - Think of something for Paula to draw
 - Make more upgrades - 2 for each item?
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
@@ -16,8 +18,10 @@
 - DESIGN
 */
 
-var pepes = 150000000;
+var pepes = 1000;
 var gpps = 0; // Global pepes per second
+
+
 
 function mainButtonClick() {
   pepes += 1;
@@ -51,6 +55,7 @@ function updateCookiesAndGppsUi() {
   var pepeCounter = document.getElementById('pepe-counter');
   pepeCounter.innerHTML = convertBigNumber(Math.round(pepes)) + ' Pepes';
   document.getElementById('gpps-counter').innerHTML = convertBigNumber(gpps) + ' PPS';
+  // console.log(pepes);
 
   for (var i = 0; i < items.length; i++) { // goes through every item and lights it up if player has enough pepes to buy it
     if (pepes >= items[i].price){
@@ -85,6 +90,7 @@ function updateGpps() {
   }
   toBeGpps = Math.round(toBeGpps);
   gpps = toBeGpps;
+  startOrRestartWorker();
  // updateCookiesAndGppsUi(); // It was once here but i think its useless, in case everything breaks, check if this is the reason
 }
 
@@ -130,12 +136,29 @@ function upgradeItem(upgradeNr) {
   }
 }
 
-
-
 var upgradesDOM = document.getElementsByClassName('upgrade-image'); // array of every upgrade UI element
 
+
+var pepeCounterWorker;
+function startOrRestartWorker(){
+  if(pepeCounterWorker != undefined){
+    console.log('asd');
+    pepeCounterWorker.terminate();
+  }
+// This worker makes GPPS work even if the tab is not active
+// this long boy down here? Dont ask, it has to do with chrome not beign able to load workers though.
+pepeCounterWorker = new Worker(URL.createObjectURL(new Blob(["("+worker_function.toString()+")()"], {type: 'text/javascript'}))); 
+pepeCounterWorker.onmessage =  function(e) {
+  pepes += e.data;
+};
+
+pepeCounterWorker.postMessage(gpps);
+}
+
+startOrRestartWorker();
+
 setInterval(updateCookiesAndGppsUi, 1);
-setInterval(function () {
-  pepes += gpps / 25;
-}, 40); // it actually adds 1 second worth of pepes every second, the timings are weird to make
+// setInterval(function () {
+//   pepes += gpps / 25;
+// }, 40); // it actually adds 1 second worth of pepes every second, the timings are weird to make
 // the counter look cool
