@@ -2,9 +2,6 @@
 --TO DO
 - Add more buildings
 - Save, Load mechanic
-- Make it play even when the tab is not active, just open. -
-  WEB WORKER - giving it PPS and pepes, recieving pepes from them so it updates when user makes the tab active
-
 - Think of something for Paula to draw
 - Make more upgrades - 2 for each item?
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
@@ -18,10 +15,24 @@
 - DESIGN
 */
 
-var pepes = 1000;
+var pepes = 45000000;
 var gpps = 0; // Global pepes per second
 
 
+
+function saveGame(){
+  var save = {
+    pepes: pepes,
+    gpps: gpps,
+    items: items,
+    upgrades: upgrades,
+  };
+  
+  localStorage.setItem("save", JSON.stringify(save));
+}
+function loadGame(){
+
+}
 
 function mainButtonClick() {
   pepes += 1;
@@ -141,8 +152,8 @@ var upgradesDOM = document.getElementsByClassName('upgrade-image'); // array of 
 
 var pepeCounterWorker;
 function startOrRestartWorker(){
-  if(pepeCounterWorker != undefined){
-    console.log('asd');
+
+  if(pepeCounterWorker != undefined){ // If the worker is already made, it terminates it to make a new one, without it there are multiple workers all adding GPPS
     pepeCounterWorker.terminate();
   }
 // This worker makes GPPS work even if the tab is not active
