@@ -18,11 +18,12 @@
 var pepes = 45000000;
 var gpps = 0; // Global pepes per second
 
+
 if(localStorage.getItem("save") !== null){
-  console.log('asd');
+  console.log('loading');
   loadGame();
 }
-
+console.log(items);
 function saveGame(){
   var save = {
     pepes: pepes,
@@ -30,6 +31,7 @@ function saveGame(){
     items: items,
     upgrades: upgrades,
   };
+   console.log(save);
   localStorage.setItem("save", JSON.stringify(save));
 }
 
@@ -39,10 +41,20 @@ function loadGame(){
   gpps = save.gpps;
   items = save.items;
   upgrades = save.upgrades;
+  updateUi();
 }
 
 function updateUi(){
+  for (var i = 0; i < items.length; i++) {
+    document.getElementById(items[i].id).querySelector('span.shop-item-amount').innerHTML = convertBigNumber(items[i].amount);
+    document.getElementById(items[i].id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(items[i].pps);
+    document.getElementById(items[i].id).querySelector('span.shop-item-price').innerHTML = convertBigNumber(items[i].price);
+    }
 
+  for (var j = 0; j < upgrades.length; j++) {
+    if (upgrades[j].bought === true)
+    document.getElementById('upgrade' + j).style.display = 'none';
+  }
 }
 
 function mainButtonClick() {
@@ -143,7 +155,7 @@ function upgradeItem(upgradeNr) {
   var upgrade = upgrades[upgradeNr];
   console.log(upgrade);
 
-  if (pepes >= upgrade.price) {
+  if (pepes >= upgrade.price && upgrade.bought === false) {
     pepes -= upgrade.price;
     upgrade.bought = true;
     upgrade.upgradedItem.pps += Math.round((upgrade.upgradedItem.pps * (upgrade.effectivness / 100)) * 100) / 100;
@@ -178,4 +190,4 @@ pepeCounterWorker.postMessage(gpps);
 startOrRestartWorker();
 
 setInterval(updateCookiesAndGppsUi, 1);
-setInterval(saveGame, 2000);
+setInterval(saveGame, 3000);

@@ -1,7 +1,7 @@
 var items = [
 
-    item1 = {
-      id: 'item1',
+    item0 = {
+      id: 'item0',
       name: 'Feels Bad Man',
       firstPrice: 10, // price of the first bought item
       price: 10,
@@ -10,8 +10,8 @@ var items = [
       totalPps: 0
     },
   
-    item2 = {
-      id: 'item2',
+    item1 = {
+      id: 'item1',
       name: 'Feels Good Man',
       firstPrice: 250,
       price: 250,
@@ -20,8 +20,8 @@ var items = [
       totalPps: 0
     },
   
-    item3 = {
-      id: 'item3',
+    item2 = {
+      id: 'item2',
       name: 'Feels Amazing Man',
       firstPrice: 2000,
       price: 2000,
@@ -30,8 +30,8 @@ var items = [
       totalPps: 0
     },
   
-    item4 = {
-      id: 'item4',
+    item3 = {
+      id: 'item3',
       name: 'Wednesday Frog',
       firstPrice: 50000,
       price: 50000,
@@ -40,8 +40,8 @@ var items = [
       totalPps: 0
     },
     
-    item5 = {
-        id: 'item5',
+    item4 = {
+        id: 'item4',
         name: 'Kermit',
         firstPrice: 300000,
         price: 300000,
@@ -50,8 +50,8 @@ var items = [
         totalPps: 0
       },
     
-      item6 = {
-        id: 'item6',
+      item5 = {
+        id: 'item5',
         name: 'Spongebob',
         firstPrice: 1200000,
         price: 1200000,
@@ -60,8 +60,8 @@ var items = [
         totalPps: 0
       },
     
-      item7 = {
-        id: 'item7',
+      item6 = {
+        id: 'item6',
         name: 'Dat boi',
         firstPrice: 6500000,
         price: 6500000,
@@ -70,8 +70,8 @@ var items = [
         totalPps: 0
       },
 
-      item8 = {
-        id: 'item8',
+      item7 = {
+        id: 'item7',
         name: 'Spooky Scary Skeleton',
         firstPrice: 36000000,
         price: 36000000,
@@ -83,84 +83,84 @@ var items = [
   
   var upgrades = [
     
-    upgrade1 =  {
-      upgradedItem: item1,
+    upgrade0 =  {
+      upgradedItem: item0,
       effectivness: 25,
       price: 250,
       bought: false,
     },
-    upgrade2 =  {
-      upgradedItem: item1,
+    upgrade1 =  {
+      upgradedItem: item0,
       effectivness: 50,
       price: 1500,
       bought: false,
     },
   
-    upgrade3 =  {
-      upgradedItem: item1,
+    upgrade2 =  {
+      upgradedItem: item0,
       effectivness: 100,
       price: 10000,
       bought: false,
     },
   
-    upgrade4 =  {
-      upgradedItem: item1,
+    upgrade3 =  {
+      upgradedItem: item0,
       effectivness: 100,
       price: 100000,
       bought: false,
     },
   
-    upgrade5 =  {
-      upgradedItem: item2,
+    upgrade4 =  {
+      upgradedItem: item1,
       effectivness: 25,
       price: 2500,
       bought: false,
     },
   
-    upgrade6 =  {
-      upgradedItem: item2,
+    upgrade5 =  {
+      upgradedItem: item1,
       effectivness: 50,
       price: 10000,
       bought: false,
     },
   
-    upgrade7 =  {
-      upgradedItem: item2,
+    upgrade6 =  {
+      upgradedItem: item1,
       effectivness: 100,
       price: 55000,
       bought: false,
     },
   
-    upgrade8 =  {
-      upgradedItem: item2,
+    upgrade7 =  {
+      upgradedItem: item1,
       effectivness: 100,
       price: 200000,
       bought: false,
     },
   
-    upgrade9 =  {
-      upgradedItem: item3,
+    upgrade8 =  {
+      upgradedItem: item2,
       effectivness: 25,
       price: 15000,
       bought: false,
     },
   
-    upgrade10 =  {
-      upgradedItem: item3,
+    upgrade9 =  {
+      upgradedItem: item2,
       effectivness: 50,
       price: 100500,
       bought: false,
     },
   
-    upgrade11 =  {
-      upgradedItem: item3,
+    upgrade10 =  {
+      upgradedItem: item2,
       effectivness: 100,
       price: 2000000,
       bought: false,
     },
   
-    upgrade12 =  {
-      upgradedItem: item3,
+    upgrade11 =  {
+      upgradedItem: item2,
       effectivness: 100,
       price: 50000000,
       bought: false,

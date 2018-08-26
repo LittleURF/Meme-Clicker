@@ -19,18 +19,18 @@
         </div>
         <div class="upgrade-section">
           <div class="upgrade-images">
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(0)"><span class="upgrade-price">250</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 25%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(1)"><span class="upgrade-price">1.5 K</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 50%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(2)"><span class="upgrade-price">10 K</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 100%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(3)"><span class="upgrade-price">100 K</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 100%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(4)"><span class="upgrade-price">2.5 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 25%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(5)"><span class="upgrade-price">10 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 50%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(6)"><span class="upgrade-price">55 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 100%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(7)"><span class="upgrade-price">200 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 100%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(8)"><span class="upgrade-price">15 K</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 25%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(9)"><span class="upgrade-price">100.5 K</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 50%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(10)"><span class="upgrade-price">2 M</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 100%</span></div>
-            <div class="upgrade-image"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(11)"><span class="upgrade-price">50 M</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 100%</span></div>
+            <div class="upgrade-image" id="upgrade0"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(0)"><span class="upgrade-price">250</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 25%</span></div>
+            <div class="upgrade-image" id="upgrade1"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(1)"><span class="upgrade-price">1.5 K</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 50%</span></div>
+            <div class="upgrade-image" id="upgrade2"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(3)"><span class="upgrade-price">100 K</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 100%</span></div>
+            <div class="upgrade-image" id="upgrade3"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(4)"><span class="upgrade-price">2.5 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 25%</span></div>
+            <div class="upgrade-image" id="upgrade4"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(5)"><span class="upgrade-price">10 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 50%</span></div>
+            <div class="upgrade-image" id="upgrade5"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(6)"><span class="upgrade-price">55 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 100%</span></div>
+            <div class="upgrade-image" id="upgrade6"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(2)"><span class="upgrade-price">10 K</span><span class="upgrade-image-tooltip">Increases Feels Bad Man effectivness by 100%</span></div>
+            <div class="upgrade-image" id="upgrade7"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(7)"><span class="upgrade-price">200 K</span><span class="upgrade-image-tooltip">Increases Feels Good Man effectivness by 100%</span></div>
+            <div class="upgrade-image" id="upgrade8"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(8)"><span class="upgrade-price">15 K</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 25%</span></div>
+            <div class="upgrade-image" id="upgrade9"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(9)"><span class="upgrade-price">100.5 K</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 50%</span></div>
+            <div class="upgrade-image" id="upgrade10"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(10)"><span class="upgrade-price">2 M</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 100%</span></div>
+            <div class="upgrade-image" id="upgrade11"><img src="../IMAGES/UpgradeIcon.ico" onclick="upgradeItem(11)"><span class="upgrade-price">50 M</span><span class="upgrade-image-tooltip">Increases Feels Amazing Man effectivness by 100%</span></div>
           </div>
         <div class="ascenction">
           <h3 class="ascension-heading">Ascension</h3>
@@ -49,7 +49,7 @@
 
 
       <section class="shop-section">
-          <div class="shop-item" id="item1" onclick="buyItem(item1)"> <!-- ITEM 1-->
+          <div class="shop-item" id="item0" onclick="buyItem(items[0])"> <!-- ITEM 0-->
             <img src="../IMAGES/FeelsBadMan.png">
             <div class="shop-item-center">
               <span class="shop-item-amount">0</span>
@@ -60,7 +60,7 @@
             </div>
             <span class="shop-item-price">10</span>
           </div>
-          <div class="shop-item" id="item2" onclick="buyItem(item2)"> <!-- ITEM 2-->
+          <div class="shop-item" id="item1" onclick="buyItem(items[1])"> <!-- ITEM 1-->
             <img src="../IMAGES/FeelsGoodMan.png">
             <div class="shop-item-center">
               <span class="shop-item-amount">0</span>
@@ -71,7 +71,7 @@
             </div>
             <span class="shop-item-price">250</span>
           </div>
-         <div class="shop-item" id="item3" onclick="buyItem(item3)"> <!-- ITEM 3-->
+         <div class="shop-item" id="item2" onclick="buyItem(items[2])"> <!-- ITEM 2-->
           <img src="../IMAGES/FeelsAmazingMan.png">
           <div class="shop-item-center">
             <span class="shop-item-amount">0</span>
@@ -82,7 +82,7 @@
           </div>
           <span class="shop-item-price">2 K</span>
          </div>
-         <div class="shop-item" id="item4" onclick="buyItem(item4)"> <!-- ITEM 4-->
+         <div class="shop-item" id="item3" onclick="buyItem(items[3])"> <!-- ITEM 3-->
           <img src="../IMAGES/WednesdayFrog.png">
           <div class="shop-item-center">
             <span class="shop-item-amount">0</span>
@@ -93,7 +93,7 @@
           </div>
           <span class="shop-item-price">50 K</span>
          </div>
-         <div class="shop-item" id="item5" onclick="buyItem(item5)"> <!-- ITEM 5-->
+         <div class="shop-item" id="item4" onclick="buyItem(items[4])"> <!-- ITEM 4-->
           <img src="../IMAGES/KermitTea.png">
           <div class="shop-item-center">
             <span class="shop-item-amount">0</span>
@@ -104,7 +104,7 @@
           </div>
           <span class="shop-item-price">400 K</span>
          </div>
-         <div class="shop-item" id="item6" onclick="buyItem(item6)"> <!-- ITEM 6-->
+         <div class="shop-item" id="item5" onclick="buyItem(items[5])"> <!-- ITEM 5-->
           <img src="../IMAGES/SpongebobPrimitive.png">
           <div class="shop-item-center">
             <span class="shop-item-amount">0</span>
@@ -115,7 +115,7 @@
           </div>
           <span class="shop-item-price">1.2 M</span>
          </div>
-         <div class="shop-item" id="item7" onclick="buyItem(item7)"> <!-- ITEM 7-->
+         <div class="shop-item" id="item6" onclick="buyItem(items[6])"> <!-- ITEM 6-->
           <img src="../IMAGES/HereComeDatBoi.png">
           <div class="shop-item-center">
             <span class="shop-item-amount">0</span>
@@ -126,7 +126,7 @@
           </div>
           <span class="shop-item-price">6.5 M</span>
          </div>
-         <div class="shop-item" id="item8" onclick="buyItem(item8)"> <!-- ITEM 8-->
+         <div class="shop-item" id="item7" onclick="buyItem(items[7])"> <!-- ITEM 7-->
           <img src="../IMAGES/SpookyScarySkeleton.png">
           <div class="shop-item-center">
             <span class="shop-item-amount">0</span>
