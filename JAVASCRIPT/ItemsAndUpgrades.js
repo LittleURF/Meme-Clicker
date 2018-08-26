@@ -79,6 +79,26 @@ var items = [
         amount: 0,
         totalPps: 0
       },
+
+      item8 = {
+        id: 'item8',
+        name: 'Distracted Boyfriend',
+        firstPrice: 215000000,
+        price: 215000000,
+        pps: 2400000,
+        amount: 0,
+        totalPps: 0
+      },
+
+      item9 = {
+        id: 'item9',
+        name: 'Circle Game',
+        firstPrice: 1200000000,
+        price: 1200000000,
+        pps: 11400000,
+        amount: 0,
+        totalPps: 0
+      },
   ]
   
   var upgrades = [

@@ -1,7 +1,9 @@
 /*
 --TO DO
+Right now - Add items and change upgrades to have 2 for each item, then make the actual images for them
+Trebuchet? Star wars? Drake?
+
 - Add more buildings
-- Save, Load mechanic
 - Think of something for Paula to draw
 - Make more upgrades - 2 for each item?
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
@@ -13,17 +15,19 @@
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
 - Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
 - DESIGN
+- Make Circle Game pic say - Made you look! at the bottom or somewhere
 */
 
-var pepes = 45000000;
+var pepes = 4500000000;
 var gpps = 0; // Global pepes per second
 
-
-if(localStorage.getItem("save") !== null){
+if(localStorage.getItem("save") !== null){ // If a previous save exists, load it.
   console.log('loading');
   loadGame();
 }
-console.log(items);
+
+
+
 function saveGame(){
   var save = {
     pepes: pepes,
@@ -31,7 +35,6 @@ function saveGame(){
     items: items,
     upgrades: upgrades,
   };
-   console.log(save);
   localStorage.setItem("save", JSON.stringify(save));
 }
 
@@ -44,7 +47,7 @@ function loadGame(){
   updateUi();
 }
 
-function updateUi(){
+function updateUi(){ // Updates UI with loaded(from a save) things
   for (var i = 0; i < items.length; i++) {
     document.getElementById(items[i].id).querySelector('span.shop-item-amount').innerHTML = convertBigNumber(items[i].amount);
     document.getElementById(items[i].id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(items[i].pps);
@@ -189,5 +192,5 @@ pepeCounterWorker.postMessage(gpps);
 
 startOrRestartWorker();
 
-setInterval(updateCookiesAndGppsUi, 1);
+setInterval(updateCookiesAndGppsUi, 10);
 setInterval(saveGame, 3000);
