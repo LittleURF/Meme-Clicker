@@ -1,7 +1,7 @@
 /*
 --TO DO
 Right now - Add items and change upgrades to have 2 for each item, then make the actual images for them
-Trebuchet? Star wars? Drake?
+Trebuchet? Star wars? Drake? Kappa, GachiGASM/Van Darkholm
 
 - Add more buildings
 - Think of something for Paula to draw
@@ -14,6 +14,7 @@ Trebuchet? Star wars? Drake?
 - Add statistics section
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
 - Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
+- remove all the roundings, just round every number in the UI
 - DESIGN
 - Make Circle Game pic say - Made you look! at the bottom or somewhere
 */
@@ -21,11 +22,11 @@ Trebuchet? Star wars? Drake?
 var pepes = 4500000000;
 var gpps = 0; // Global pepes per second
 
-if(localStorage.getItem("save") !== null){ // If a previous save exists, load it.
-  console.log('loading');
-  loadGame();
-}
 
+// if(localStorage.getItem("save") !== null){ // If a previous save exists, load it.
+//   console.log('loading');
+//   loadGame();
+// }
 
 
 function saveGame(){
@@ -103,7 +104,12 @@ function updateCookiesAndGppsUi() {
       document.getElementById(items[i].id).style.opacity = '0.45';
       document.getElementById(items[i].id).style.filter = 'grayscale(100%)';
     }
+    if ( items[i].amount == 0) // If item is not bought, pps is greyed out
+      document.getElementById(items[i].id).querySelector('span.shop-item-pps').style.opacity = '0.4';
+    else
+    document.getElementById(items[i].id).querySelector('span.shop-item-pps').style.opacity = '1';
   }
+ 
 
   for (var j = 0; j < upgradesDOM.length; j++){ // goes through every upgrade and lights it up if player has enough pepes to buy it
     var upgradePrice = upgradesDOM[j].querySelector('span.upgrade-price').innerHTML.replace(/\s/g, ''); // removes whitespace from the price
@@ -135,18 +141,13 @@ function updateItemsPps(item) {
   document.getElementById(item.id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(item.totalPps);
 }
 
-function roundNumberTo2(number) { // rounding number up to 2 decimal places to avoid rogue decimals
-  return number = Math.round(number * 100) / 100;
-
-}
 
 function buyItem(item) {
   if (pepes >= item.price) {
     pepes -= item.price;
     item.amount++;
-    item.pps = roundNumberTo2(item.pps);
     item.price = Math.floor(item.firstPrice * Math.pow(1.2, item.amount))
-    item.totalPps = roundNumberTo2(item.amount * item.pps); // updates items total pps
+    item.totalPps =item.amount * item.pps; // updates items total pps
     event.target.querySelector('span.shop-item-amount').innerHTML = convertBigNumber(item.amount); // updates amount on UI
     event.target.querySelector('span.shop-item-price').innerHTML = convertBigNumber(item.price); // updates price on UI
     updateGpps();
@@ -162,9 +163,7 @@ function upgradeItem(upgradeNr) {
     pepes -= upgrade.price;
     upgrade.bought = true;
     upgrade.upgradedItem.pps += Math.round((upgrade.upgradedItem.pps * (upgrade.effectivness / 100)) * 100) / 100;
-    upgrade.upgradedItem.pps = roundNumberTo2(upgrade.upgradedItem.pps);
-    // ^ Adds effectivness percentages to the number and rounds it to 2 decimal places
-    upgrade.upgradedItem.totalPps = roundNumberTo2(upgrade.upgradedItem.amount * upgrade.upgradedItem.pps); // updates items total pps
+    upgrade.upgradedItem.totalPps = upgrade.upgradedItem.amount * upgrade.upgradedItem.pps; // updates items total pps
     updateGpps();
     event.target.parentElement.style.display = 'none';
     updateItemsPps(upgrade.upgradedItem);
@@ -189,7 +188,7 @@ pepeCounterWorker.onmessage =  function(e) {
 
 pepeCounterWorker.postMessage(gpps);
 }
-
+updateUi();
 startOrRestartWorker();
 
 setInterval(updateCookiesAndGppsUi, 10);
