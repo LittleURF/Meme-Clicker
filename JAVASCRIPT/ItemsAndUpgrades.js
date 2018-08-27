@@ -12,7 +12,7 @@ var items = [
 
   item1 = {
     id: 'item1',
-    name: 'Feels Good Man',
+    name: 'MADE YOU LOOK',
     firstPrice: 250,
     price: 250,
     pps: 10,
@@ -22,7 +22,7 @@ var items = [
 
   item2 = {
     id: 'item2',
-    name: 'Feels Amazing Man',
+    name: 'Salt',
     firstPrice: 2000,
     price: 2000,
     pps: 100,
@@ -62,7 +62,7 @@ var items = [
   
     item6 = {
       id: 'item6',
-      name: 'Dat boi',
+      name: 'Dat Boi',
       firstPrice: 6500000,
       price: 6500000,
       pps: 113000,
@@ -92,7 +92,7 @@ var items = [
 
     item9 = {
       id: 'item9',
-      name: 'Circle Game',
+      name: 'Feels Amazing Man',
       firstPrice: 1200000000,
       price: 1200000000,
       pps: 11400000,
@@ -204,91 +204,91 @@ var upgrades = [
     effectivness: 100,
     price: 50000000,
     bought: false,
-  }
+  },
   
   upgrade12 =  {
     upgradedItem: item6,
     effectivness: 50,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade13 =  {
     upgradedItem: item6,
     effectivness: 100,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade14 =  {
     upgradedItem: item7,
     effectivness: 50,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade15 =  {
     upgradedItem: item7,
     effectivness: 100,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade16 =  {
     upgradedItem: item8,
     effectivness: 50,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade17 =  {
     upgradedItem: item8,
     effectivness: 100,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade18 =  {
     upgradedItem: item9,
     effectivness: 50,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade19 =  {
     upgradedItem: item9,
     effectivness: 100,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade20 =  {
     upgradedItem: item10,
     effectivness: 50,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade21 =  {
     upgradedItem: item10,
     effectivness: 100,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade22 =  {
     upgradedItem: item11,
     effectivness: 50,
     price: 50000000,
     bought: false,
-  }
+  },
 
   upgrade23 =  {
     upgradedItem: item11,
     effectivness: 100,
     price: 50000000,
     bought: false,
-  }
+  },
 
   
 ];

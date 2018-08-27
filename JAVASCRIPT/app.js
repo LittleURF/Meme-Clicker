@@ -5,7 +5,7 @@ Trebuchet? Star wars? Drake? Kappa, GachiGASM/Van Darkholm
 
 - Add more buildings
 - Think of something for Paula to draw
-- Make more upgrades - 2 for each item?
+- Change upgrades prices in html + js and more stuff in html
 - Replace upgrade icons with actual buildings they upgrade (modified pics tho)
 - Make small main cookie icon to place next to item price? 
 - Make upgrades dissapear when player is far away from them(no item,
@@ -14,6 +14,9 @@ Trebuchet? Star wars? Drake? Kappa, GachiGASM/Van Darkholm
 - Add statistics section
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
 - Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
+
+- Sometimes all upgrades dissapear when you buy one of them, check after beign done with making upgrades
+
 - How to split it into files without creating global variables?
 
 - If you dont wanna screw with splitting the code, get everything in this here file at the end!
