@@ -14,11 +14,18 @@ Trebuchet? Star wars? Drake? Kappa, GachiGASM/Van Darkholm
 - Add statistics section
 - Maybe get the rounding of numbers in order? Its all over the place as of now.
 - Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
-- remove all the roundings, just round every number in the UI
+- How to split it into files without creating global variables?
+
+- If you dont wanna screw with splitting the code, get everything in this here file at the end!
+!!!^
+!!!^
 - DESIGN
 - Make Circle Game pic say - Made you look! at the bottom or somewhere
-*/
 
+*/
+(function(){
+
+  
 var pepes = 4500000000;
 var gpps = 0; // Global pepes per second
 
@@ -61,14 +68,21 @@ function updateUi(){ // Updates UI with loaded(from a save) things
   }
 }
 
+var mainPepeButton = document.getElementById('main-pepe-button');
+mainPepeButton.addEventListener("click", mainButtonClick, false);
+
+
 function mainButtonClick() {
+
   pepes += 1;
 }
 
-function normalizeNumbers(number) {
-  number = number.replace(/\s/g, '');
-  return number;
-}
+
+
+// function normalizeNumbers(number) {
+//   number = number.replace(/\s/g, '');
+//   return number;
+// }
 
 function convertBigNumber(number){
 
@@ -148,17 +162,23 @@ function buyItem(item) {
     item.amount++;
     item.price = Math.floor(item.firstPrice * Math.pow(1.2, item.amount))
     item.totalPps =item.amount * item.pps; // updates items total pps
-    event.target.querySelector('span.shop-item-amount').innerHTML = convertBigNumber(item.amount); // updates amount on UI
-    event.target.querySelector('span.shop-item-price').innerHTML = convertBigNumber(item.price); // updates price on UI
+    var itemDOM = document.getElementById(item.id)
+    itemDOM.querySelector('span.shop-item-amount').innerHTML = convertBigNumber(item.amount); // updates amount on UI
+    itemDOM.querySelector('span.shop-item-price').innerHTML = convertBigNumber(item.price); // updates price on UI
     updateGpps();
     updateItemsPps(item);
   }
 }
 
-function upgradeItem(upgradeNr) {
-  var upgrade = upgrades[upgradeNr];
-  console.log(upgrade);
+for (var i = 0; i < items.length; i++){
+  itemDOM[i].addEventListener("click", buyItem.bind(this, items[i]), false);
+}
 
+for (var j = 0; j < upgrades.length; j++){
+  upgradesDOM[j].addEventListener("click", upgradeItem.bind(this, upgrades[j]), false);
+}
+
+function upgradeItem(upgrade) {
   if (pepes >= upgrade.price && upgrade.bought === false) {
     pepes -= upgrade.price;
     upgrade.bought = true;
@@ -169,8 +189,6 @@ function upgradeItem(upgradeNr) {
     updateItemsPps(upgrade.upgradedItem);
   }
 }
-
-var upgradesDOM = document.getElementsByClassName('upgrade-image'); // array of every upgrade UI element
 
 
 var pepeCounterWorker;
@@ -191,5 +209,16 @@ pepeCounterWorker.postMessage(gpps);
 updateUi();
 startOrRestartWorker();
 
+
+
+
+
+
+
+
+
+
+
 setInterval(updateCookiesAndGppsUi, 10);
 setInterval(saveGame, 3000);
+})();
