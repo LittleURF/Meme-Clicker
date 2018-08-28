@@ -166,12 +166,18 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
+.upgrade-image > * {
+  pointer-events: none;
+}
+
 .upgrade-image {
   display: flex;
   flex-basis: 67px;
   height: 70px;
   flex-wrap: wrap;
   align-items: flex-end;
+  position: relative;
 }
 
 .upgrade-image > img {
@@ -195,17 +201,18 @@ body {
 .upgrade-image > .upgrade-image-tooltip {
   visibility: hidden;
   width: 220px;
-  background-color: #555;
-  color: #fff;
+  background-color: rgb(99, 99, 99);
+  color: rgb(233, 233, 233);
+  border: 2px solid black;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 5px 5px;
   position: absolute;
   z-index: 1;
   bottom: 104%;
   left: 50%;
   margin-left: -110px;
-  font-size: 1.1em;
+  font-size: 1.2em;
   opacity: 0;
   transition: opacity 0.3s;
 }

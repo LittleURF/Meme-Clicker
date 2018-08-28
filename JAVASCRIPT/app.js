@@ -1,22 +1,12 @@
 /*
 --TO DO
- upgrades make the actual images for them
-Trebuchet? Star wars? Drake? Kappa, GachiGASM/Van Darkholm
-
 - Think of something for Paula to draw
-- Change upgrades prices in html + js and more stuff in html
-- Replace upgrade icons with actual buildings they upgrade (modified pics tho)
-- Make small main cookie icon to place next to item price? 
 - Make upgrades dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
 - Add other upgrade types, all items effectivness, click effectivness
 - Add statistics section
 - Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
-
-- Sometimes all upgrades dissapear when you buy one of them, check after beign done with making upgrades
-
 - How to split it into files without creating global variables?
-
 - If you dont wanna screw with splitting the code, get everything in this here file at the end!
 !!!^
 !!!^
@@ -77,13 +67,6 @@ function mainButtonClick() {
 
   pepes += 1;
 }
-
-
-
-// function normalizeNumbers(number) {
-//   number = number.replace(/\s/g, '');
-//   return number;
-// }
 
 function convertBigNumber(number){
 
@@ -192,11 +175,10 @@ function upgradeItem(upgrade) {
     upgrade.upgradedItem.pps += Math.round((upgrade.upgradedItem.pps * (upgrade.effectivness / 100)) * 100) / 100;
     upgrade.upgradedItem.totalPps = upgrade.upgradedItem.amount * upgrade.upgradedItem.pps; // updates items total pps
     updateGpps();
-    event.target.parentElement.style.display = 'none';
+    event.target.style.display = 'none'; // removes upgrade from UI
     updateItemsPps(upgrade.upgradedItem);
   }
 }
-
 
 var pepeCounterWorker;
 function startOrRestartWorker(){
