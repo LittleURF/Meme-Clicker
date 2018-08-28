@@ -51,12 +51,12 @@ body {
   flex-basis: 28%;
   background-color:rgb(71, 119, 119);
   border: 2px solid black;
-
 }
 
 .central-section {
   display: flex;
   flex-basis: 35%;
+  order: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -91,6 +91,10 @@ body {
 
 #gpps-counter {
   margin-top: 10px;
+}
+
+.shop-section {
+  order: 2;
 }
 
 .shop-item {
@@ -154,6 +158,7 @@ body {
 
 .upgrade-stats-section {
   min-height: 200px;
+  order: 3;
 }
 .upgrade-stats-sections-buttons{
   display: flex;
@@ -166,16 +171,21 @@ body {
   font-size: 1.8em;
   background-color: rgb(54, 54, 54);
   color: rgb(233, 233, 233);
-  border: 1px solid black;
+  border: none;
   width: 100%;
 }
-.upgrade-stats-sections-buttons > button {
-  
-  flex-basis: 50%;
-  
 
-
+.button:focus {
+  outline: none;
 }
+.upgrade-stats-sections-buttons > button {
+  flex-basis: 50%;
+}
+
+.upgrade-stats-sections-buttons > button:first-child {
+  border-right: 2px solid black;
+}
+
 
 .upgrade-images {
   margin: 2.5%;
@@ -261,14 +271,7 @@ body {
   text-align: center;
 }
 
+@media only screen and (min-width: 768px) {
 
-/* background-image: linear-gradient(to right bottom, #051937, #1c223a, #2b2c3d, #383740, #434343);
-
-background-image: linear-gradient(to right bottom, #051937, #041a3b, #021b3f, #011c44, #001d48);
-
-background-image: linear-gradient(to left bottom, #051937, #0a1c46, #181d53, #2a1c5f, #3e1869);
-
-background-image: linear-gradient(to left bottom, #d6d6d6, #bcbcbc, #a3a3a3, #8b8b8b, #737373); */
-
-
-/*background-image: linear-gradient(to left bottom, #6f9072, #517e77, #486a73, #495562, #44434a);
+  
+}

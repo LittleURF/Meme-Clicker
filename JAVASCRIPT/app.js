@@ -1,5 +1,6 @@
 /*
 --TO DO
+- RESPONSIVNESS!
 - Think of something for Paula to draw
 - Make upgrades dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
@@ -17,7 +18,7 @@
 (function(){
 
   
-var pepes = 150000;
+var pepes = 15000000000000000000;
 var gpps = 0; // Global pepes per second
 
 
