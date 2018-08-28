@@ -20,7 +20,9 @@ time, mark, audio, video {
 }
 
 body {
-  margin: 0;
+
+  min-height: 100vh;
+
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-image: linear-gradient(to left bottom, #2e6363, #517e77, #486a73, #495562, #44434a);
@@ -28,7 +30,7 @@ body {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   color: rgb(223, 223, 223);
-  border: 1px solid transparent;
+
 }
 
 .main-wrapper {
@@ -64,7 +66,7 @@ body {
   flex-basis: 95%;
   order: 1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
 }
@@ -294,11 +296,6 @@ body {
     margin-top: 35px;
   }
 
-  .central-section {
-    position: sticky;
-    top: 0;
-    height: 1011px;
-  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -321,8 +318,6 @@ body {
   .upgrade-ascendance-section {
     order: 1;
     flex-basis: 30%;
-    position: sticky;
-    top: 10px;
   }
 
   .central-section {
