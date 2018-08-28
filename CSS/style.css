@@ -167,29 +167,35 @@ body {
   justify-content: flex-start;
 }
 .upgrade-image {
-  flex-basis: 60px;
+  display: flex;
+  flex-basis: 67px;
   height: 70px;
-  justify-content: center;
-  position: relative;
+  flex-wrap: wrap;
+  align-items: flex-end;
+
+
 }
 
 
 .upgrade-image > img {
   display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 75%;
+
 }
 
 .upgrade-price {
   display: table;
   margin: 0 auto;
+  margin-top: 1px;
   width: 80%;
   font-size: 1.15em;
   font-weight: 600;
   text-align: center;
+  border-top: 1px solid rgb(134, 134, 134);
 }
 
-.upgrade-image .upgrade-image-tooltip {
+.upgrade-image > .upgrade-image-tooltip {
   visibility: hidden;
   width: 220px;
   background-color: #555;
@@ -207,7 +213,7 @@ body {
   transition: opacity 0.3s;
 }
 
-.upgrade-image .upgrade-image-tooltip::after {
+.upgrade-image > .upgrade-image-tooltip::after {
   content: "";
   position: absolute;
   top: 100%;
