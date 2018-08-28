@@ -27,7 +27,7 @@ Trebuchet? Star wars? Drake? Kappa, GachiGASM/Van Darkholm
 (function(){
 
   
-var pepes = 4500000000;
+var pepes = 450000000000000;
 var gpps = 0; // Global pepes per second
 
 
@@ -88,6 +88,12 @@ function mainButtonClick() {
 function convertBigNumber(number){
 
   switch(true){
+    case (number >= 1000000000000000000):
+    number = (number / 1000000000000000000).toFixed(3) + ' S';
+    break;
+    case (number >= 1000000000000000):
+      number = (number / 1000000000000000).toFixed(3) + ' Q';
+      break;
     case (number >= 1000000000000):
       number = (number / 1000000000000).toFixed(3) + ' T';
       break;
