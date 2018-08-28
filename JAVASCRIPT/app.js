@@ -6,18 +6,18 @@
 - Add other upgrade types, all items effectivness, click effectivness
 - Add statistics section
 - Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
+- Ascendances
 - How to split it into files without creating global variables?
 - If you dont wanna screw with splitting the code, get everything in this here file at the end!
 !!!^
 !!!^
 - DESIGN
-- Make Circle Game pic say - Made you look! at the bottom or somewhere
 
 */
 (function(){
 
   
-var pepes = 450000000000000;
+var pepes = 150000;
 var gpps = 0; // Global pepes per second
 
 
