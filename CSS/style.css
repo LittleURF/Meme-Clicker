@@ -24,6 +24,7 @@ body {
     font-size: 62.5%;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    color: rgb(49, 49, 49);
 }
 
 .main-wrapper {
@@ -47,7 +48,7 @@ body {
 
 .upgrade-stats-section, .shop-section {
   flex-basis: 28%;
-  background-color: #dbdbdb;
+  background-color: #e7e5e5;
   border: 2px solid black;
 
 }
@@ -72,7 +73,12 @@ body {
   background-image:url("../IMAGES/MainPepeButton.jpg");
   background-size: cover;
   background-position: center;
-  outline: none;
+  outline: none; 
+  transition: 0.05s;
+}
+
+#main-pepe-button:active {
+  transform: scale(1.05);
 }
 
 #pepe-counter, #gpps-counter {
@@ -161,7 +167,7 @@ body {
 }
 
 .upgrade-images {
-  margin: 4%;
+  margin: 2.5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -173,11 +179,12 @@ body {
 
 .upgrade-image {
   display: flex;
-  flex-basis: 67px;
+  flex-basis: 72px;
   height: 70px;
   flex-wrap: wrap;
   align-items: flex-end;
   position: relative;
+  margin: 0.5%;
 }
 
 .upgrade-image > img {
@@ -233,7 +240,7 @@ body {
   opacity: 1;
 }
 
-.ascension-heading {
+.ascendence-heading {
   font-size: 2.2em;
   padding: 5px;
   margin: 10px 0px;
@@ -241,3 +248,4 @@ body {
   border-width: 2px 0px;
   background-color: rgb(235, 235, 235);
 }
+
