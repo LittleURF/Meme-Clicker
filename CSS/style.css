@@ -62,7 +62,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  position: sticky;
+  top: 0;
 }
 
 #main-pepe-button {
@@ -180,11 +181,17 @@ body {
   background-color: rgb(54, 54, 54);
   color: rgb(233, 233, 233);
   border: none;
+  border-bottom: 1px solid black;
   width: 100%;
 }
 
 .button:focus {
   outline: none;
+}
+
+.button-ascendence {
+  border-top: 1px solid black;
+  border-bottom: none
 }
 .upgrade-stats-sections-buttons > button {
   flex-basis: 50%;
@@ -309,7 +316,6 @@ body {
   .main-wrapper {
     width: 95%;
   }
-
   .shop-section {
     flex-basis: 37%;
   }
@@ -317,7 +323,10 @@ body {
   .upgrade-stats-section {
     order: 1;
     flex-basis: 30%;
+    position: sticky;
+    top: 10px;
   }
+
 }
 
 @media only screen and (min-width: 1200px) {

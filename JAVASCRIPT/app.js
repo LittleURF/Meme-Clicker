@@ -3,7 +3,6 @@
 - Make a small window asking if the user is here just to test, if so give him lots of pepes instantly
  div sticked to a side? with one button saying give me money! and one saying no, - closing the window
 
- -sticky pepe on smaller screens
 - Think of something for Paula to draw
 - Make upgrades dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
@@ -21,7 +20,7 @@
 (function(){
 
   
-var pepes = 15000000000000000000;
+var pepes = 2000000000000000;
 var gpps = 0; // Global pepes per second
 
 

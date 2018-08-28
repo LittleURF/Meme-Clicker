@@ -82,7 +82,7 @@ var items = [
 
   item8 = {
     id: 'item8',
-    name: 'Distracted Guy',
+    name: 'Distracted Boyfriend',
     firstPrice: 5146880000,
     price: 5146880000,
     pps: 4700000,
@@ -286,7 +286,7 @@ var upgrades = [
   upgrade23 = {
     upgradedItem: item11,
     effectivness: 100,
-    price: 2610000000000000,
+    price: 26100000000000000,
     bought: false,
   },
 
