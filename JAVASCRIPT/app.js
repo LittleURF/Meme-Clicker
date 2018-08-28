@@ -121,10 +121,12 @@ function updateCookiesAndGppsUi() {
   for (var j = 0; j < upgradesDOM.length; j++){ // goes through every upgrade and lights it up if player has enough pepes to buy it
     var upgradePrice = upgradesDOM[j].querySelector('span.upgrade-price').innerHTML.replace(/\s/g, ''); // removes whitespace from the price
     if(pepes < upgrades[j].price){
-      upgradesDOM[j].style.opacity = '0.4';
+      upgradesDOM[j].querySelector('span.upgrade-price').style.opacity ='0.4';
+      upgradesDOM[j].querySelector('img').style.opacity = '0.4';
     }
     else {
-      upgradesDOM[j].style.opacity = '1';
+      upgradesDOM[j].querySelector('span.upgrade-price').style.opacity ='1';
+      upgradesDOM[j].querySelector('img').style.opacity = '1';
     }
   
   }

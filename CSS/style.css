@@ -20,6 +20,10 @@ time, mark, audio, video {
 }
 
 body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-image: linear-gradient(to left bottom, #2e6363, #517e77, #486a73, #495562, #44434a);
   font-size: 62.5%;
   box-sizing: border-box;
@@ -49,21 +53,21 @@ body {
   border-radius: 5px;
 }
 
-.upgrade-stats-section, .shop-section {
-  flex-basis: 28%;
+.upgrade-ascendance-section, .shop-section {
+  flex-basis: 80%;
   background-color:rgb(71, 119, 119);
   border: 2px solid black;
 }
 
 .central-section {
   display: flex;
-  flex-basis: 100%;
+  flex-basis: 95%;
   order: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: sticky;
-  top: 0;
+
+
 }
 
 #main-pepe-button {
@@ -164,12 +168,12 @@ body {
   border-left: 1px solid black;
 }
 
-.upgrade-stats-section {
+.upgrade-ascendance-section {
   min-height: 200px;
   order: 3;
   flex-basis: 100%;
 }
-.upgrade-stats-sections-buttons{
+.upgrade-ascendance-sections-buttons{
   display: flex;
   justify-content: center;
   width: 100%;
@@ -193,11 +197,11 @@ body {
   border-top: 1px solid black;
   border-bottom: none
 }
-.upgrade-stats-sections-buttons > button {
+.upgrade-ascendance-sections-buttons > button {
   flex-basis: 50%;
 }
 
-.upgrade-stats-sections-buttons > button:first-child {
+.upgrade-ascendance-sections-buttons > button:first-child {
   border-right: 2px solid black;
 }
 
@@ -254,8 +258,8 @@ body {
   z-index: 1;
   bottom: 104%;
   left: 50%;
-  margin-left: -110px;
-  font-size: 1.2em;
+  margin-left: -115px;
+  font-size: 1.45em;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -268,22 +272,12 @@ body {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border-color: black transparent transparent transparent;
 }
 
 .upgrade-image:hover .upgrade-image-tooltip {
   visibility: visible;
   opacity: 1;
-}
-
-.ascendence-heading {
-  font-size: 2.2em;
-  padding: 5px;
-  margin: 10px 0px 40px 0px;
-  border: solid #3838388f;
-  border-width: 2px 0px;
-  background-color: rgb(54, 54, 54);
-  text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
@@ -301,6 +295,10 @@ body {
     margin-top: 35px;
   }
 
+  .central-section {
+    position: sticky;
+    top: 0;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -314,13 +312,13 @@ body {
 
 @media only screen and (min-width: 1200px) {
   .main-wrapper {
-    width: 95%;
+    width: 90%;
   }
   .shop-section {
     flex-basis: 37%;
   }
 
-  .upgrade-stats-section {
+  .upgrade-ascendance-section {
     order: 1;
     flex-basis: 30%;
     position: sticky;
@@ -329,11 +327,6 @@ body {
 
 }
 
-@media only screen and (min-width: 1200px) {
-  .main-wrapper {
-    width: 90%;
-  }
-}
 
 @media only screen and (min-width: 1440px) {
   .main-wrapper {
