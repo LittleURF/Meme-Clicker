@@ -28,9 +28,9 @@ body {
 }
 
 .main-wrapper {
-  width: 76%;
+  width: 97%;
   margin: 0 auto;
-  margin-top: 55px;
+  margin-top: 25px;
 }
 
 .header-game-title {
@@ -42,6 +42,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
+
 }
 .sections-wrapper > section {
   border-radius: 5px;
@@ -55,7 +57,7 @@ body {
 
 .central-section {
   display: flex;
-  flex-basis: 35%;
+  flex-basis: 100%;
   order: 1;
   flex-direction: column;
   justify-content: center;
@@ -93,8 +95,12 @@ body {
   margin-top: 10px;
 }
 
+.main-section {
+  margin-bottom: 25px;
+}
 .shop-section {
   order: 2;
+  flex-basis: 100%;
 }
 
 .shop-item {
@@ -123,6 +129,7 @@ body {
 }
 .shop-item > img {
   width: 15%;
+  max-height: 85%;
 }
 
 .shop-item-amount {
@@ -159,6 +166,7 @@ body {
 .upgrade-stats-section {
   min-height: 200px;
   order: 3;
+  flex-basis: 100%;
 }
 .upgrade-stats-sections-buttons{
   display: flex;
@@ -272,6 +280,68 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
+  .central-section {
+    flex-basis: 30%;
+  }
 
-  
+  .shop-section {
+    flex-basis: 60%;
+  }
+
+  .main-wrapper {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 35px;
+  }
+
+}
+
+@media only screen and (min-width: 992px) {
+  .main-wrapper {
+    width: 75%;
+  }
+  .shop-section {
+    flex-basis: 55%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main-wrapper {
+    width: 95%;
+  }
+
+  .shop-section {
+    flex-basis: 37%;
+  }
+
+  .upgrade-stats-section {
+    order: 1;
+    flex-basis: 30%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main-wrapper {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .main-wrapper {
+    width: 80%;
+  }
+
+  .shop-section {
+    flex-basis: 35%;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .main-wrapper {
+    width: 75%;
+  }
+
+  .shop-section {
+    flex-basis: 30%;
+  }
 }
