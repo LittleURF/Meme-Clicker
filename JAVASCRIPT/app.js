@@ -385,32 +385,38 @@ function convertBigNumber(number, notToRemoveZeroes){
   switch(true){
     case (number >= 1000000000000000000):
     number = (number / 1000000000000000000).toFixed(3);
-     if(!notToRemoveZeroes){number = removeZeroes(number);}
+     if(!notToRemoveZeroes){
+       number = removeZeroes(number);}
     number += ' S';
     break;
     case (number >= 1000000000000000):
       number = (number / 1000000000000000).toFixed(3);
-      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      if(!notToRemoveZeroes){
+        number = removeZeroes(number);}
       number += ' Q';
       break;
     case (number >= 1000000000000):
       number = (number / 1000000000000).toFixed(3);
-      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      if(!notToRemoveZeroes){
+        number = removeZeroes(number);}
       number += ' T';
       break;
     case (number >= 1000000000):
       number = (number / 1000000000).toFixed(3);
-      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      if(!notToRemoveZeroes){
+        number = removeZeroes(number);}
       number += ' B';
       break;
     case (number >= 1000000):
       number = (number / 1000000).toFixed(3);
-      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      if(!notToRemoveZeroes){
+        number = removeZeroes(number);}
       number += ' M';
       break;
     case (number >= 1000):
       number = (number / 1000).toFixed(3);
-      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      if(!notToRemoveZeroes){
+        number = removeZeroes(number);}
       number += ' K';
       break;
   }
