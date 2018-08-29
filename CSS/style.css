@@ -292,6 +292,7 @@ body {
   border: 2px solid black;
   background-color: rgba(29, 29, 29, 0.95);
   border-radius: 5px;
+  display: none;
 }
 
 #test-pepes > p {

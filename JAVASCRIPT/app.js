@@ -234,7 +234,7 @@
     upgrade13 = {
       upgradedItem: item6,
       effectivness: 100,
-      price: 3462500000,
+      price: 34625000000,
       bought: false,
     },
   
@@ -370,26 +370,48 @@ function mainButtonClick() {
   pepes += 1;
 }
 
-function convertBigNumber(number){
+function convertBigNumber(number, notToRemoveZeroes){
+
+  function removeZeroes(number){
+    for(var i = 2; i >= 0; i--){
+      var lastChar = number.toString().split('').pop();
+      if(lastChar == 0){
+        number = parseFloat(number).toFixed(i);
+      }
+    }
+    return number;
+  }
 
   switch(true){
     case (number >= 1000000000000000000):
-    number = (number / 1000000000000000000).toFixed(3) + ' S';
+    number = (number / 1000000000000000000).toFixed(3);
+     if(!notToRemoveZeroes){number = removeZeroes(number);}
+    number += ' S';
     break;
     case (number >= 1000000000000000):
-      number = (number / 1000000000000000).toFixed(3) + ' Q';
+      number = (number / 1000000000000000).toFixed(3);
+      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      number += ' Q';
       break;
     case (number >= 1000000000000):
-      number = (number / 1000000000000).toFixed(3) + ' T';
+      number = (number / 1000000000000).toFixed(3);
+      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      number += ' T';
       break;
     case (number >= 1000000000):
-      number = (number / 1000000000).toFixed(3) + ' B';
+      number = (number / 1000000000).toFixed(3);
+      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      number += ' B';
       break;
     case (number >= 1000000):
-      number = (number / 1000000).toFixed(3) + ' M';
+      number = (number / 1000000).toFixed(3);
+      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      number += ' M';
       break;
     case (number >= 1000):
-      number = (number / 1000).toFixed(3) + ' K';
+      number = (number / 1000).toFixed(3);
+      if(!notToRemoveZeroes){number = removeZeroes(number);}
+      number += ' K';
       break;
   }
   return number;
@@ -397,7 +419,7 @@ function convertBigNumber(number){
 
 function updateCookiesAndGppsUi() {
   var pepeCounter = document.getElementById('pepe-counter');
-  pepeCounter.innerHTML = convertBigNumber(Math.round(pepes)) + ' Pepes';
+  pepeCounter.innerHTML = convertBigNumber(Math.round(pepes), true) + ' Pepes';
   document.getElementById('gpps-counter').innerHTML = convertBigNumber(gpps) + ' PPS';
   // console.log(pepes);
 
