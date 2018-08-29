@@ -351,8 +351,9 @@ function loadGame(){
 function updateUi(){ // Updates UI with loaded(from a save) things
   for (var i = 0; i < items.length; i++) {
     document.getElementById(items[i].id).querySelector('span.shop-item-amount').innerHTML = convertBigNumber(items[i].amount);
-    document.getElementById(items[i].id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(items[i].pps);
+    document.getElementById(items[i].id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(items[i].totalPps);
     document.getElementById(items[i].id).querySelector('span.shop-item-price').innerHTML = convertBigNumber(items[i].price);
+
     }
 
   for (var j = 0; j < upgrades.length; j++) {
