@@ -1,21 +1,18 @@
 /*
 --TO DO
-- Compress images
-
 - Think of something for Paula to draw
 - Make upgrades dissapear when player is far away from them(no item,
   earlier upgrade for this item is not yet bought)
 - Add other upgrade types, all items effectivness, click effectivness
 - Add ascendance section
 - Make buildings dissaper if player doesnt have the previous one(?) and money for it(?)
-- How to split it into files without creating global variables?
-- If you dont wanna screw with splitting the code, get everything in this here file at the end!
 !!!^
 !!!^
 - DESIGN
 
 */
 (function(){
+  if(localStorage.getItem("save") !== null){
   var items = [
 
     item0 = {
@@ -142,13 +139,13 @@
   var upgrades = [
   
     upgrade0 = {
-      upgradedItem: item0,
+      upgradedItem: items[0],
       effectivness: 50,
       price: 250,
       bought: false,
     },
     upgrade1 = {
-      upgradedItem: item0,
+      upgradedItem: items[0],
       effectivness: 100,
       price: 2300,
       bought: false,
@@ -310,7 +307,7 @@
   
   
   ];
-  
+}
   var itemDOM = document.getElementsByClassName('shop-item'); // array of every item UI element
   var upgradesDOM = document.getElementsByClassName('upgrade-image'); // array of every upgrade UI element
 
@@ -321,13 +318,13 @@ var gpps = 0; // Global pepes per second
 var testPepesWindow = document.getElementById('test-pepes');
 
 if(localStorage.getItem("save") !== null){ // If a previous save exists, load it.
- console.log('loading');
- loadGame();
- hideTestMoneyWindow();
-}
-else {
-  testPepesWindow.style.display = 'initial';
-}
+  console.log('loading');
+  loadGame();
+  hideTestMoneyWindow();
+ }
+ else {
+   testPepesWindow.style.display = 'initial';
+ }
 
 function saveGame(){
   var save = {
@@ -343,8 +340,17 @@ function loadGame(){
   var save = JSON.parse(localStorage.getItem("save"));
   pepes = save.pepes;
   gpps = save.gpps;
-  items = save.items;
-  upgrades = save.upgrades;
+
+  for(var i = 0; i < items.length; i ++){ // It cant be items = save.items because then it all screws up
+    items[i].price = save.items[i].price;
+    items[i].pps = save.items[i].pps;
+    items[i].amount = save.items[i].amount;
+    items[i].totalPps = save.items[i].totalPps;
+  }
+
+  for(var j = 0; j < upgrades.length; j ++){ // same here
+  upgrades[j].bought = save.upgrades[j].bought;
+  }
   updateUi();
 }
 
@@ -447,7 +453,6 @@ function updateCookiesAndGppsUi() {
  
 
   for (var j = 0; j < upgradesDOM.length; j++){ // goes through every upgrade and lights it up if player has enough pepes to buy it
-    var upgradePrice = upgradesDOM[j].querySelector('span.upgrade-price').innerHTML.replace(/\s/g, ''); // removes whitespace from the price
     if(pepes < upgrades[j].price){
       upgradesDOM[j].querySelector('span.upgrade-price').style.opacity ='0.4';
       upgradesDOM[j].querySelector('img').style.opacity = '0.4';
@@ -503,6 +508,7 @@ for (var j = 0; j < upgrades.length; j++){
 
 function upgradeItem(upgrade) {
   if (pepes >= upgrade.price && upgrade.bought === false) {
+    console.log(upgrade.upgradedItem.totalPps);
     pepes -= upgrade.price;
     upgrade.bought = true;
     upgrade.upgradedItem.pps += Math.round((upgrade.upgradedItem.pps * (upgrade.effectivness / 100)) * 100) / 100;
@@ -510,6 +516,8 @@ function upgradeItem(upgrade) {
     updateGpps();
     event.target.style.display = 'none'; // removes upgrade from UI
     updateItemsPps(upgrade.upgradedItem);
+    updateUi();
+    console.log(upgrade.upgradedItem.totalPps);
   }
 }
 
