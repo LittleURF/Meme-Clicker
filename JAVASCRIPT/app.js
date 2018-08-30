@@ -308,17 +308,18 @@
   
   ];
 }
-  var itemDOM = document.getElementsByClassName('shop-item'); // array of every item UI element
-  var upgradesDOM = document.getElementsByClassName('upgrade-image'); // array of every upgrade UI element
+
 
 
   
 var pepes =  0;
 var gpps = 0; // Global pepes per second
 var testPepesWindow = document.getElementById('test-pepes');
+var itemDOM = document.getElementsByClassName('shop-item'); // array of every item UI element
+var upgradesDOM = document.getElementsByClassName('upgrade-image'); // array of every upgrade UI element
+
 
 if(localStorage.getItem("save") !== null){ // If a previous save exists, load it.
-  console.log('loading');
   loadGame();
   hideTestMoneyWindow();
  }
@@ -354,6 +355,7 @@ function loadGame(){
   updateUi();
 }
 
+
 function updateUi(){ // Updates UI with loaded(from a save) things
   for (var i = 0; i < items.length; i++) {
     document.getElementById(items[i].id).querySelector('span.shop-item-amount').innerHTML = convertBigNumber(items[i].amount);
@@ -373,7 +375,6 @@ mainPepeButton.addEventListener("click", mainButtonClick, false);
 
 
 function mainButtonClick() {
-
   pepes += 1;
 }
 
@@ -445,12 +446,14 @@ function updateCookiesAndGppsUi() {
       document.getElementById(items[i].id).style.opacity = '0.45';
       document.getElementById(items[i].id).style.filter = 'grayscale(100%)';
     }
+
     if ( items[i].amount == 0) // If item is not bought, pps is greyed out
       document.getElementById(items[i].id).querySelector('span.shop-item-pps').style.opacity = '0.4';
     else
     document.getElementById(items[i].id).querySelector('span.shop-item-pps').style.opacity = '1';
   }
  
+
 
   for (var j = 0; j < upgradesDOM.length; j++){ // goes through every upgrade and lights it up if player has enough pepes to buy it
     if(pepes < upgrades[j].price){
@@ -468,9 +471,11 @@ function updateCookiesAndGppsUi() {
 
 function updateGpps() {
   var toBeGpps = 0;
+
   for (var i = 0; i < items.length; i++) {
     toBeGpps += items[i].totalPps;
   }
+
   toBeGpps = Math.round(toBeGpps);
   gpps = toBeGpps;
   startOrRestartWorker();
@@ -489,7 +494,7 @@ function buyItem(item) {
     pepes -= item.price;
     item.amount++;
     item.price = Math.floor(item.firstPrice * Math.pow(1.2, item.amount))
-    item.totalPps =item.amount * item.pps; // updates items total pps
+    item.totalPps = item.amount * item.pps; // updates items total pps
     var itemDOM = document.getElementById(item.id)
     itemDOM.querySelector('span.shop-item-amount').innerHTML = convertBigNumber(item.amount); // updates amount on UI
     itemDOM.querySelector('span.shop-item-price').innerHTML = convertBigNumber(item.price); // updates price on UI
@@ -508,7 +513,6 @@ for (var j = 0; j < upgrades.length; j++){
 
 function upgradeItem(upgrade) {
   if (pepes >= upgrade.price && upgrade.bought === false) {
-    console.log(upgrade.upgradedItem.totalPps);
     pepes -= upgrade.price;
     upgrade.bought = true;
     upgrade.upgradedItem.pps += Math.round((upgrade.upgradedItem.pps * (upgrade.effectivness / 100)) * 100) / 100;
@@ -517,7 +521,6 @@ function upgradeItem(upgrade) {
     event.target.style.display = 'none'; // removes upgrade from UI
     updateItemsPps(upgrade.upgradedItem);
     updateUi();
-    console.log(upgrade.upgradedItem.totalPps);
   }
 }
 

@@ -37,11 +37,6 @@ body {
   margin-top: 25px;
 }
 
-.header-game-title {
-  font-size: 7.5em;
-  text-align: center;
-}
-
 .sections-wrapper{
   display: flex;
   justify-content: space-between;
