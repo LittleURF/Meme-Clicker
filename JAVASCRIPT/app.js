@@ -12,7 +12,7 @@
 
 */
 (function(){
-  if(localStorage.getItem("save") !== null){
+  if(localStorage.getItem("save") !== undefined){
   var items = [
 
     item0 = {
@@ -360,6 +360,9 @@ function updateUi(){ // Updates UI with loaded(from a save) things
   for (var i = 0; i < items.length; i++) {
     document.getElementById(items[i].id).querySelector('span.shop-item-amount').innerHTML = convertBigNumber(items[i].amount);
     document.getElementById(items[i].id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(items[i].totalPps);
+    if(items[i].amount === 0){
+      document.getElementById(items[i].id).querySelector('span.shop-item-pps').innerHTML = 'PPS: ' + convertBigNumber(items[i].pps);
+    }
     document.getElementById(items[i].id).querySelector('span.shop-item-price').innerHTML = convertBigNumber(items[i].price);
 
     }
@@ -390,7 +393,7 @@ function convertBigNumber(number, notToRemoveZeroes){
     return number;
   }
 
-  switch(true){
+  switch(true){ // Get into a closure, where a function returns wanted letter n stuff
     case (number >= 1000000000000000000):
     number = (number / 1000000000000000000).toFixed(3);
      if(!notToRemoveZeroes){
